@@ -1,0 +1,25 @@
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <td>Director</td>
+                    <td>Titulo</td>
+                    <td>Fecha</td>
+                    <td>Modificar</td>
+                    <td>Borrar</td>
+                </tr>
+            </thead>
+            <tbody *ngFor="let pelicula of listadoPeliculas">
+                <td>{{pelicula.director}}</td>
+                <td>{{pelicula.titulo}}</td>
+                <td>{{pelicula.fecha}}</td>
+                <td><button (click)="deleteMovie(pelicula.titulo)" class="btn btn-danger">Borrar</button></td>
+                <td><button (click)="updateMovie(pelicula.titulo)" class="btn btn-warning">Actualizar</button></td>
+            </tbody>
+        </table>
+        <div>
+            <button (click)="createMovie()" class="btn btn-secondary">Crear Pelicula</button>
+        </div>
+    </div>
+</div>

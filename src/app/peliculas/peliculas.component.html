@@ -1,0 +1,36 @@
+<div class="card my-5">
+    <div class="card-body">
+        <table *ngIf="listadoPeliculas.length > 0" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <td>Director</td>
+                    <td>Titulo</td>
+                    <td>Fecha</td>
+                </tr>
+            </thead>
+            <tbody *ngFor="let pelicula of listadoPeliculas">
+                <td>{{pelicula.director}}</td>
+                <td>{{pelicula.titulo}}</td>
+                <td>{{pelicula.fecha}}</td>
+            </tbody>
+        </table>
+
+        <div *ngIf="listadoPeliculas.length <= 0">
+            <p class="h3 text-center text-danger mb-5">Este director no tiene ninguna pelicula en nuestra base de datos</p>
+        </div>
+        <div class="text-center">
+            <h3>¿Desea realizar una nueva consulta?</h3>
+            <a routerLink="/consulta" class="btn btn-success">Si</a>
+            <a routerLink="" class="btn btn-danger ml-2">No</a>
+        </div>
+        <button (click)="finalizar()" class="btn btn-warning">Finalizar</button>
+        <div *ngIf="finalizado">
+            <div class="card my-5" *ngFor="let director of registroDirectores">
+                <div class="card-body">
+                    <td>{{director}}</td>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

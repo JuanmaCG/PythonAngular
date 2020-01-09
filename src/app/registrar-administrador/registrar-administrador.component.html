@@ -1,0 +1,18 @@
+<h3>Sign up</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()" #empForm="ngForm">
+        <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" class="form-control" id="usuario" required [(ngModel)]="usuario.usuario" name="usuario">
+        </div>
+
+        <div class="form-group">
+            <label for="contrasena">Contraseña</label>
+            <input type="password" class="form-control" id="contrasena" [(ngModel)]="usuario.password" name="contrasena">
+        </div>
+
+
+
+        <button type="submit" class="btn btn-success" [disabled]="!empForm.form.valid">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+
+<div class="form-class col-6">
+    <form (ngSubmit)="validarLogin()">
+        <div class="form-group">
+            <label for="dni">Usuario</label>
+            <input type="text" name="name" [(ngModel)]="usuario" class="form-control">
+            <label>Contraseña</label>
+            <input type="password" name="name" [(ngModel)]="password" class="form-control">
+            <button type="submit" class="btn btn-success mt-2">Consultar</button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="usuarioValidado()">
+    <h3>Estas logeado</h3>
+    <p class="text-success">Bienvenido, usuario: {{usuarioBBDD.usuario}} password: {{usuarioBBDD.password}}</p>
+
+
+    <button (click)="toMantenimiento()" class="btn btn-warning">Mantenimiento Peliculas</button>
+    <button (click)="toIndex()" class="btn btn-primary ml-3">Volver</button>
+</div>
+
+<div *ngIf="!usuarioValidado()">
+    <p class="text-danger">Usuario / Contraseña incorrecto</p>
+</div>
